@@ -21,3 +21,7 @@ def apply_guess (state: dict, ch: str) -> bool:
         return True
     else:
         return False
+    
+def is_won (state: dict) -> bool:
+    if "_" not in state["display"]:
+        return True
