@@ -32,3 +32,7 @@ def is_lost(state: dict) -> bool:
     
 def render_display(state: dict) -> str:
     return state["display"]
+
+def render_summary(state: dict) -> str:
+    return f'''The secret word is: {state["secret"]}\n
+             All the letters guessed are: {state["guessed"]}'''
