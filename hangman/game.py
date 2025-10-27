@@ -15,3 +15,9 @@ def validate_guess (ch: str, guessed: set[str]) -> tuple[bool, str]:
             return False , " The guess was unsuccessful "
     else:
         return False , " Invalid character entered "
+    
+def apply_guess (state: dict, ch: str) -> bool:
+    if ch in state["secret"]:
+        return True
+    else:
+        return False
