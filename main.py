@@ -2,7 +2,7 @@ from hangman import game , io
 from data import words
 from random import choice
 
-def play (words: list[str], max_tries: int = 2) -> None:
+def play (words: list[str], max_tries: int = 10) -> None:
     word = choice(words)
     state = game.init_state(word,max_tries)
     io.print_status(state)
@@ -23,4 +23,4 @@ def play (words: list[str], max_tries: int = 2) -> None:
             
             
 if __name__ == "__main__":
-   play(words.word)           
+   play(words.word)
