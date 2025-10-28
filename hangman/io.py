@@ -3,14 +3,16 @@ def prompt_guess() -> str:
 
 def print_status(state: dict) -> None:
     print(f"""The word is: {state["display"]}\n 
-          All the letters guessed are: {state["guessed"]}
-          The remaining guesses are: {state["max_tries"] - {state["wrong_guessed"]}}
+          All the letters guessed are: {state["guessed"]}\n
+          The remaining guesses are: {state["max_tries"] - state["wrong_guessed"]}
           """)
 
 def print_result(state: dict) -> None:
     if "_" not in state["display"]:
-        print("You won!")
+        print(f"""You won!\n
+              The chosen word is: {state["secret"]}.
+              """)
     else:
-        print("Unfortunately, you didn't win!")
-    print(f'''The chosen word is: {state["secret"]}.
-              The letters you guessed are: {state["guessed"]}.''')
+        print(f"""Unfortunately, you didn't win!\n
+              The chosen word is: {state["secret"]}.""")
+    print(f'''The letters you guessed are: {state["guessed"]}.''')
