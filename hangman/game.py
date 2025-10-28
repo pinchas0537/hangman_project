@@ -9,9 +9,9 @@ def init_state(secret: str, max_tries: int) -> dict:
 
 def validate_guess (ch: str ,state: dict) -> tuple[bool, str]:
     if len(ch) == 1 and ch.isalpha():
-        if ch in state["secret"]:
+        if ch in state["secret"] and ch not in state["guessed"]:
             return True , " The guess was successful "
-        elif ch not in state["guessed"]:
+        elif ch not in state["secret"] and ch not in state["guessed"]:
             return False , " The guess was unsuccessful "
         elif ch in state["guessed"]:
             return False , "You have used this letter already, select again:"
