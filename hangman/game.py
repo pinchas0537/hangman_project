@@ -7,13 +7,13 @@ def init_state(secret: str, max_tries: int) -> dict:
         "max_tries": max_tries
     }
 
-def validate_guess (ch: str, guessed:set[str],state: dict) -> tuple[bool, str]:
+def validate_guess (ch: str ,state: dict) -> tuple[bool, str]:
     if len(ch) == 1 and ch.isalpha():
         if ch in state["secret"]:
             return True , " The guess was successful "
-        elif ch not in guessed:
+        elif ch not in state["guessed"]:
             return False , " The guess was unsuccessful "
-        elif ch in guessed:
+        elif ch in state["guessed"]:
             return False , "You have used this letter already, select again:"
     else:
         return False , " Invalid character entered "

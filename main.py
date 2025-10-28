@@ -8,7 +8,7 @@ def play (words: list[str], max_tries: int = 10) -> None:
     first_print_status = io.print_status(state)
     while state["wrong_guessed"] < max_tries and game.is_won(state) == False:
         input_ch = io.prompt_guess()
-        validate_guess = game.validate_guess(input_ch , state["guessed"], state)
+        validate_guess = game.validate_guess(input_ch, state)
         if validate_guess[0] == False:
             state["guessed"].add(input_ch)
             state["wrong_guessed"] += 1
